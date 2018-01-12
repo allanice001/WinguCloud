@@ -9,7 +9,7 @@ parameters:
   key_name:
     type: string
     description: Name of keypair to assign to servers
-    default: wingu-dem
+    default: wingu-demo
   image:
     type: string
     description: Name of image to use for servers
@@ -20,26 +20,28 @@ parameters:
     default: gen1.small
   public_net:
     type: string
-    description: >
-      ID or name of public network for which floating IP addresses will be allocated
+    description: ID or name of public network for which floating IP addresses will be allocated
     default: public
   private_net_name:
     type: string
     description: Name of private network to be created
-
+    default: private
   private_net_cidr:
     type: string
     description: Private network address (CIDR notation)
+    default: 172.31.0.0/24
   private_net_gateway:
     type: string
     description: Private network gateway address
+    default: 172.31.0.5
   private_net_pool_start:
     type: string
     description: Start of private network IP address allocation pool
+    default: 172.31.0.5
   private_net_pool_end:
     type: string
     description: End of private network IP address allocation pool
-
+    default: 172.31.0.250
 resources:
   private_net:
     type: OS::Neutron::Net
